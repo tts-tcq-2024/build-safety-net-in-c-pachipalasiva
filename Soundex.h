@@ -20,22 +20,31 @@ char getSoundexCode(char c) {
 
 void generateSoundex(const char *name, char *soundex) {
     int len = strlen(name);
-    soundex[0] = toupper(name[0]);
-    int sIndex = 1;
+    soundex[0] = toupper(name[0]); // Keep the first letter
 
+    int sIndex = 1; // Index for soundex code
+    char prevCode = getSoundexCode(name[0]); // Initialize with the first character's soundex code
+
+    // Iterate through the name to generate Soundex code
     for (int i = 1; i < len && sIndex < 4; i++) {
         char code = getSoundexCode(name[i]);
-        if (code != '0' && code != soundex[sIndex - 1]) {
+
+        // Add to soundex if it's a valid code and not the same as the previous one
+        if (code != '0' && code != prevCode) {
             soundex[sIndex++] = code;
         }
+
+        prevCode = code; // Update the previous code
     }
 
+    // Fill with zeros if less than 4 characters
     while (sIndex < 4) {
         soundex[sIndex++] = '0';
     }
 
-    soundex[4] = '\0';
+    soundex[4] = '\0'; // Null-terminate the string
 }
+
 int main() {
     const char *name = "Pachipala";
     char soundex[5]; // Soundex code will be stored here (4 characters + '\0')
