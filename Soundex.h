@@ -46,7 +46,7 @@ void generateSoundex(const char *name, char *soundex) {
 }
 
 int main() {
-    const char *name = "Pachipala";
+    const char *name = "shiva";
     char soundex[5]; // Soundex code will be stored here (4 characters + '\0')
 
     generateSoundex(name, soundex);
