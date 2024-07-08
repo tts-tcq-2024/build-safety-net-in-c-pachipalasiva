@@ -11,23 +11,23 @@ char getSoundexCode(char c) {
         '2', '2', '4', '5', '5', '0', '1', '2', '6', // J-R
         '2', '3', '0', '1', '0', '2', '0', '2'      // S-Z
     };
-    c = toupper(c);
+     c = toupper(c);
     if (isalpha(c)) {
-     char result =codeTable[c - 'A'];
-}      
-}
+        return codeTable[c - 'A'];
+    }
+    return '0';
+}  
     
 void generateSoundex(const char *name, char *soundex) {
     soundex[0] = toupper(name[0]);
     int sIndex = 1;
 
-    for (int i = 1; name[i] != '\0' && sIndex < 4; i++) {
+     for (int i = 1; name[i] != '\0' && sIndex < 4; i++) {
         char code = getSoundexCode(name[i]);
-        if (code != '0' && code != soundex[sIndex - 1]) {
+        if (code != '0') {
             soundex[sIndex++] = code;
         }
     }
-
     while (sIndex < 4) {
         soundex[sIndex++] = '0';
     }
@@ -35,7 +35,7 @@ void generateSoundex(const char *name, char *soundex) {
 }
 
 int main() {
-    const char *name = "HERMAN";
+    const char *name = "robert";
     char soundex[5];
 
     generateSoundex(name, soundex);
@@ -43,5 +43,4 @@ int main() {
 
     return 0;
 }
-
 #endif // SOUNDEX_H
