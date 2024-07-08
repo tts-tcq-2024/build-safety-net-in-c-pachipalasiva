@@ -24,13 +24,10 @@ void generateSoundex(const char *name, char *soundex) {
 
      for (int i = 1; name[i] != '\0' && sIndex < 4; i++) {
         char code = getSoundexCode(name[i]);
-        if (code != '0') {
-            soundex[sIndex++] = code;
-        }
+        soundex[sIndex] = (code != '0') ? code : soundex[sIndex];
+        sIndex += (code != '0');
     }
-    while (sIndex < 4) {
-        soundex[sIndex++] = '0';
-    }
+    memset(soundex + sIndex, '0', 4 - sIndex);
     soundex[4] = '\0';
 }
 
