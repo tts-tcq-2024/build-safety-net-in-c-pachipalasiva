@@ -9,6 +9,6 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
  generateSoundex("Adams", soundex);
  ASSERT_EQ(soundex,"A352");
   generateSoundex("Aeiou", soundex);
- ASSERT_EQ(soundex,A000);
+ ASSERT_EQ(soundex,"A000");
  
 }
