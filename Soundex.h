@@ -33,9 +33,8 @@ void generateSoundex(const char *name, char *soundex) {
         // Add to soundex if it's a valid code and not the same as the previous one
         if (code != '0' && code != prevCode) {
             soundex[sIndex++] = code;
+            prevCode = code; // Update the previous code
         }
-
-        prevCode = code; // Update the previous code
     }
 
     // Fill with zeros if less than 4 characters
