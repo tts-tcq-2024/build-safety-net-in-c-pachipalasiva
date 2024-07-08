@@ -4,6 +4,7 @@
 #include "Soundex.h"
 #include <ctype.h>
 #include <string.h>
+#include<stdio.h>
 
 char getSoundexCode(char c) {
     c = toupper(c);
