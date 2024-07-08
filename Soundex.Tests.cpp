@@ -10,5 +10,8 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
  ASSERT_EQ(soundex,"A352");
   generateSoundex("Aeiou", soundex);
  ASSERT_EQ(soundex,"A000");
+ generateSoundex("@@gty", soundex);
+ ASSERT_EQ(soundex,"@230");
+ 
  
 }
