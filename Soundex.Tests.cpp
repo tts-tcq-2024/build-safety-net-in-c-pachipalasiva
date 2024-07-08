@@ -8,7 +8,7 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
  ASSERT_EQ(soundex,"A200");
  generateSoundex("Adams", soundex);
  ASSERT_EQ(soundex,"A352");
-  generateSoundex("Adams", soundex);
- ASSERT_EQ(soundex,"Aeiou",A000);
+  generateSoundex("Aeiou", soundex);
+ ASSERT_EQ(soundex,A000);
  
 }
