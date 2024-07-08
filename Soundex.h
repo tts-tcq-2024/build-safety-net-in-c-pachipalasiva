@@ -24,16 +24,14 @@ void generateSoundex(const char *name, char *soundex) {
     soundex[0] = toupper(name[0]); // Keep the first letter
 
     int sIndex = 1; // Index for soundex code
-    char prevCode = getSoundexCode(name[0]); // Initialize with the first character's soundex code
 
     // Iterate through the name to generate Soundex code
     for (int i = 1; i < len && sIndex < 4; i++) {
         char code = getSoundexCode(name[i]);
 
         // Add to soundex if it's a valid code and not the same as the previous one
-        if (code != '0' && code != prevCode) {
+        if (code != '0' && code != soundex[sIndex - 1]) {
             soundex[sIndex++] = code;
-            prevCode = code; // Update the previous code
         }
     }
 
@@ -41,7 +39,6 @@ void generateSoundex(const char *name, char *soundex) {
     while (sIndex < 4) {
         soundex[sIndex++] = '0';
     }
-
     soundex[4] = '\0'; // Null-terminate the string
 }
 
@@ -56,4 +53,3 @@ int main() {
     return 0;
 }
 #endif // SOUNDEX_H
-
