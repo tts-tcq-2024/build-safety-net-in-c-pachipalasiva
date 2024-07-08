@@ -17,6 +17,16 @@ char getSoundexCode(char c) {
     }
     return '0';
 }  
+
+int updateSoundex(char code, int sIndex, char *soundex) {
+    _Bool notZero = code != '0';
+    if (notZero) {
+        soundex[sIndex] = code;
+        return ++sIndex;
+    } 
+    soundex[sIndex] = soundex[sIndex];
+    return sIndex;
+}
     
 void generateSoundex(const char *name, char *soundex) {
     soundex[0] = toupper(name[0]);
@@ -24,8 +34,9 @@ void generateSoundex(const char *name, char *soundex) {
 
      for (int i = 1; name[i] != '\0' && sIndex < 4; i++) {
         char code = getSoundexCode(name[i]);
-        soundex[sIndex] = (code != '0') ? code : soundex[sIndex];
-        sIndex += (code != '0');
+        sIndex = updateSoundex(code, sIndex, soundex);
+        // soundex[sIndex] = (code != '0') ? code : soundex[sIndex];
+        // sIndex += (code != '0');
     }
     memset(soundex + sIndex, '0', 4 - sIndex);
     soundex[4] = '\0';
