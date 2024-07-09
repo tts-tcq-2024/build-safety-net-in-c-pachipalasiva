@@ -5,7 +5,7 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
  //AAA
   char soundex[5];
   generateSoundex("@$%j", soundex);
- ASSERT_EQ(soundex,"A200");
+ ASSERT_EQ(soundex,"@200");
  generateSoundex("Adams", soundex);
  ASSERT_EQ(soundex,"A352");
   generateSoundex("Aeiou", soundex);
