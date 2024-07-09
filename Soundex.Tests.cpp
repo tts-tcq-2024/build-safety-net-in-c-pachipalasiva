@@ -29,3 +29,10 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_vowels) {
  ASSERT_STREQ(soundex,"A000");
 }
 
+TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_vowels) {
+ //AAA
+ char soundex[5];
+ generateSoundex(" ", soundex);
+ ASSERT_STREQ(soundex," 000");
+}
+
