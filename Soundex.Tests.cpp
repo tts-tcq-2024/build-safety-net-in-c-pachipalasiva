@@ -29,7 +29,7 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_vowels) {
  ASSERT_STREQ(soundex,"A000");
 }
 
-TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_vowels) {
+TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_space) {
  //AAA
  char soundex[5];
  generateSoundex(" ", soundex);
