@@ -5,41 +5,41 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
  //AAA
   char soundex[5];
  generateSoundex("@$%j", soundex);
-ASSERT_STREQ(soundex,"@200");
+ASSERT_EQ(soundex,"@200");
 }
 
 TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_1) {
  //AAA
  char soundex[5];
  generateSoundex("Adams", soundex);
- ASSERT_STREQ(soundex,"A352");
+ ASSERT_EQ(soundex,"A352");
 }
 
 TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_2) {
  //AAA
   char soundex[5];
  generateSoundex("@@gty", soundex);
- ASSERT_STREQ(soundex,"@230");
+ ASSERT_EQ(soundex,"@230");
 }
 
 TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_vowels) {
  //AAA
  char soundex[5];
  generateSoundex("aeiou", soundex);
- ASSERT_STREQ(soundex,"A000");
+ ASSERT_EQ(soundex,"A000");
 }
 
 TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_space) {
  //AAA
  char soundex[5];
  generateSoundex(" ", soundex);
- ASSERT_STREQ(soundex," 000");
+ ASSERT_EQ(soundex," 000");
 }
 
 TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_3) {
  //AAA
  char soundex[5];
- generateSoundex("9Sh_iv_a", soundex);
- ASSERT_STREQ(soundex,"9210");
+ generateSoundex(".Sh_iv_a", soundex);
+ ASSERT_EQ(soundex,".210");
 }
 
