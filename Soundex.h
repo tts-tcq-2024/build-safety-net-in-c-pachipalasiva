@@ -34,21 +34,10 @@ void generateSoundex(const char *name, char *soundex) {
 
      for (int i = 1; name[i] != '\0' && sIndex < 4; i++) {
         char code = getSoundexCode(name[i]);
-        sIndex = updateSoundex(code, sIndex, soundex);
-        // soundex[sIndex] = (code != '0') ? code : soundex[sIndex];
-        // sIndex += (code != '0');
+        sIndex = updateSoundex(code, sIndex, soundex); 
     }
     memset(soundex + sIndex, '0', 4 - sIndex);
     soundex[4] = '\0';
 }
 
-/*int main() {
-    const char *name = "robert";
-    char soundex[5];
-
-    generateSoundex(name, soundex);
-    printf("Soundex code for '%s' is '%s'\n", name, soundex);
-
-    return 0;
-} */
 #endif // SOUNDEX_H
