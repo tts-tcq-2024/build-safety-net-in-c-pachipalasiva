@@ -36,3 +36,10 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_space) {
  ASSERT_STREQ(soundex," 000");
 }
 
+TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_3) {
+ //AAA
+ char soundex[5];
+ generateSoundex("9Sh_iv_a", soundex);
+ ASSERT_STREQ(soundex,"9210");
+}
+
